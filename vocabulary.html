@@ -170,8 +170,8 @@
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 12px;
+      padding: 16px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -182,23 +182,23 @@
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-2px);
       border-color: var(--card-border-hover);
-      box-shadow: 0 12px 30px rgba(59, 109, 17, 0.1);
+      box-shadow: 0 8px 24px rgba(59, 109, 17, 0.08);
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 15px;
+      margin-bottom: 8px;
     }
 
     .word {
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--text);
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
 
     .word a {
@@ -212,50 +212,34 @@
       text-decoration: underline;
     }
 
-    .meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-
-    .tag {
-      background: rgba(59, 109, 17, 0.1);
-      color: var(--accent);
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      border: 1px solid rgba(59, 109, 17, 0.15);
-    }
-
     .time {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-sec);
+      margin-top: 4px;
     }
 
     .translation-area {
-      margin-bottom: 16px;
-      min-height: 36px;
+      margin-bottom: 8px;
+      min-height: 28px;
       position: relative;
     }
 
     .translation {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       transition: filter 0.3s ease;
     }
 
     /* Dict Area */
     .dict {
       border-top: 1px dashed var(--card-border);
-      padding-top: 12px;
-      margin-top: 8px;
+      padding-top: 8px;
+      margin-top: 6px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       transition: filter 0.3s ease;
     }
 
@@ -466,6 +450,7 @@
       <!-- 卡片: Congress -->
       
 
+    
     
     
     </main>
