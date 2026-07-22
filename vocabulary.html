@@ -6,15 +6,15 @@
   <title>我的翻译复习本 📚</title>
   <style>
     :root {
-      --bg: #0d0f14;
-      --panel-bg: rgba(22, 28, 38, 0.6);
-      --card-bg: rgba(30, 39, 54, 0.4);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(74, 140, 255, 0.3);
-      --text: #e6e9ef;
-      --text-sec: #9aa3b8;
-      --accent: #4a8cff;
-      --accent-grad: linear-gradient(135deg, #4a8cff, #3b78e0);
+      --bg: #eef7f0;
+      --panel-bg: rgba(255, 255, 255, 0.8);
+      --card-bg: #ffffff;
+      --card-border: #cdebd6;
+      --card-border-hover: #a3dbae;
+      --text: #243a28;
+      --text-sec: #6e8a72;
+      --accent: #3b6d11;
+      --accent-grad: linear-gradient(135deg, #3b6d11, #4c8a16);
       --danger: #ff5c5c;
       --success: #2e9b57;
     }
@@ -31,7 +31,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       padding: 40px 20px;
       min-height: 100vh;
-      background-image: radial-gradient(circle at 10% 20%, rgba(26, 32, 48, 0.8) 0%, rgba(13, 15, 20, 1) 90.2%);
+      background-image: radial-gradient(circle at 10% 20%, #f4f9f5 0%, #eef7f0 90%);
     }
 
     .container {
@@ -50,16 +50,14 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
     }
 
     .logo-area h1 {
       font-size: 22px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      background: linear-gradient(120deg, #fff, var(--text-sec));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -76,11 +74,11 @@
     }
 
     .search-box input {
-      background: rgba(0, 0, 0, 0.3);
+      background: #fff;
       border: 1px solid var(--card-border);
       border-radius: 30px;
       padding: 10px 20px 10px 40px;
-      color: #fff;
+      color: var(--text);
       font-size: 14px;
       outline: none;
       width: 240px;
@@ -89,7 +87,7 @@
 
     .search-box input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(74, 140, 255, 0.2);
+      box-shadow: 0 0 10px rgba(59, 109, 17, 0.2);
       width: 280px;
     }
 
@@ -135,7 +133,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.1);
       transition: .3s;
       border-radius: 24px;
       border: 1px solid var(--card-border);
@@ -148,7 +146,8 @@
       width: 16px;
       left: 3px;
       bottom: 3px;
-      background-color: white;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       transition: .3s;
       border-radius: 50%;
     }
@@ -169,9 +168,7 @@
     }
 
     .card {
-      background: var(--panel-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 24px;
@@ -180,14 +177,14 @@
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--card-border-hover);
-      box-shadow: 0 12px 30px rgba(74, 140, 255, 0.15);
+      box-shadow: 0 12px 30px rgba(59, 109, 17, 0.1);
     }
 
     .card-header {
@@ -200,8 +197,19 @@
     .word {
       font-size: 24px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       letter-spacing: -0.5px;
+    }
+
+    .word a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .word a:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
     .meta {
@@ -212,13 +220,13 @@
     }
 
     .tag {
-      background: rgba(74, 140, 255, 0.15);
+      background: rgba(59, 109, 17, 0.1);
       color: var(--accent);
       font-size: 11px;
       padding: 2px 8px;
       border-radius: 6px;
       font-weight: 600;
-      border: 1px solid rgba(74, 140, 255, 0.2);
+      border: 1px solid rgba(59, 109, 17, 0.15);
     }
 
     .time {
@@ -294,7 +302,7 @@
       font-weight: 600;
       border-radius: 20px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(74, 140, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(59, 109, 17, 0.4);
       opacity: 0;
       pointer-events: none;
       transition: all 0.2s ease;
@@ -324,7 +332,7 @@
     .empty-state h3 {
       font-size: 18px;
       margin-bottom: 8px;
-      color: #fff;
+      color: var(--text);
     }
   </style>
 </head>
@@ -443,6 +451,7 @@
         </div>
       </div>
 
+    
     </main>
   </div>
 
