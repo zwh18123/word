@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的翻译复习本 📚</title>
@@ -326,8 +327,9 @@
         <h1>我的翻译复习本 📚</h1>
       </div>
       <div class="controls">
-        <div class="search-box">
-          <input type="text" id="search" placeholder="搜索单词或翻译...">
+        <div class="search-box" style="display: flex; gap: 8px; align-items: center;">
+          <input type="text" id="search" placeholder="搜索单词、翻译或时间...">
+          <input type="date" id="date-search" title="按日期筛选" style="padding: 6px 10px; border: 1px solid var(--card-border); border-radius: 8px; font-size: 13px; outline: none; background: #fff; color: var(--text);">
         </div>
         <div class="switch-area">
           <span class="switch-label">复习模式</span>
@@ -414,6 +416,7 @@
     
     
     
+    
     </main>
   </div>
 
@@ -437,21 +440,36 @@
       card.classList.add('revealed');
     }
 
-    // 实时搜索过滤
+    // 实时搜索与日期过滤
     const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.card');
-      
-      cards.forEach(card => {
-        const searchText = card.getAttribute('data-search').toLowerCase();
-        if (searchText.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  </script>
+    const dateInput = document.getElementById('date-search');
 
-</body></html>
+    function filterCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      const selectedDate = dateInput ? dateInput.value : '';
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const searchText = (card.getAttribute('data-search') || '').toLowerCase();
+        const timeText = (card.querySelector('.time') ? card.querySelector('.time').textContent : '').toLowerCase();
+        
+        let matchQuery = !query || searchText.includes(query) || timeText.includes(query);
+        let matchDate = true;
+        if (selectedDate) {
+          const parts = selectedDate.split('-');
+          if (parts.length === 3) {
+            const [y, m, d] = parts;
+            const p1 = y + '-' + m + '-' + d;
+            const p2 = y + '-' + parseInt(m, 10) + '-' + parseInt(d, 10);
+            matchDate = searchText.includes(p1) || searchText.includes(p2) || timeText.includes(p1) || timeText.includes(p2);
+          }
+        }
+        card.style.display = (matchQuery && matchDate) ? 'flex' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    if (dateInput) dateInput.addEventListener('change', filterCards);
+  </script>
+</body>
+</html>
