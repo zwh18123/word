@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的翻译复习本 📚</title>
@@ -263,6 +264,53 @@
 
     .defs {
       color: var(--text);
+    }
+
+    .context-quote {
+      font-size: 12px;
+      color: var(--text-sec);
+      font-style: italic;
+      margin: 4px 0 6px 0;
+      line-height: 1.4;
+      background: rgba(59, 109, 17, 0.04);
+      padding: 4px 8px;
+      border-radius: 6px;
+      border-left: 2px solid var(--accent);
+      transition: filter 0.3s ease;
+    }
+
+    .source-info {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .source-link {
+      color: var(--text-sec);
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 80%;
+      transition: color 0.2s;
+    }
+
+    .source-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .scroll-tag {
+      color: var(--text-sec);
+      font-size: 10px;
+      white-space: nowrap;
+      background: rgba(59, 109, 17, 0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
     }
 
     /* Review Mode Styles */
@@ -1125,6 +1173,7 @@
     
     
     
+    
     </main>
   </div>
 
@@ -1179,5 +1228,5 @@
     searchInput.addEventListener('input', filterCards);
     if (dateInput) dateInput.addEventListener('change', filterCards);
   </script>
-
-</body></html>
+</body>
+</html>
